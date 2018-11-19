@@ -19,13 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function getRandomImage () {
     fetch("https://dog.ceo/api/breeds/image/random").then(response => {
       return response.json();
+      debugger;
     }).then(parsedRes => {
-      if (response === 0) {
-        body.appendChild(image);
-      } else if (response > 0) {
-        document.querySelector(image).replaceChild(image.src, image)
-        console.log(parsedRes);
+      // if (parsedRes) {
+        // body.appendChild(image);
+      // } else
+      if (parsedRes) {
+        // body.appendChild(image);
+        // document.querySelector(image).replaceChild(image.src, image)
+        document.querySelector(image).replaceChild(image.src, parsedRes.message)
+
       }
+      console.log(parsedRes.message);
+      // console.log(response);
     })
 
     // image.src = dogObj.message;
@@ -33,9 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  button.addEventListener("click", (event) => {
-      getRandomImage()
-  })
+  button.addEventListener("click", getRandomImage)
+      // getRandomImage()
+
 
 
 })
