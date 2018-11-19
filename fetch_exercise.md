@@ -8,6 +8,11 @@ Copy your Random Dog Image app and adjust it to use `fetch` instead of `XMLHttpR
 
 Create an app that includes a drop-down menu (`select`). This drop-down menu should contain each Studio Ghibli film in the Ghibli API.
 
+//mine:
+from:
+https://ghibliapi.herokuapp.com/#section/Getting-Started
+api: https://ghibliapi.herokuapp.com/films
+
 When the user selects a film, underneath the `select` box, information about the film should render. This information should include (where available):
 
 - The movie's title

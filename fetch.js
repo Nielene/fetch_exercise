@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://dog.ceo/api/breeds/image/random").then(response => {
       return response.json();
     }).then(res => {
+
+
       image.src = res.message
     })
   }
