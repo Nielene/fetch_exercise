@@ -1,30 +1,69 @@
-let $ = document;
+// let $ = document;
 let filmList;
+let ul;
+let li;
+let display = document.createElement("div");
+display.classList.add("display");
+let title = document.querySelector(".title");
+let director = document.querySelector(".director");
+let description = document.querySelector(".description");
+let rt_score = document.querySelector(".rt_score");
+let release_date = document.querySelector(".release_date");
 
-$.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   createAndAppendSelect();
-  getMovie();
+  fetchAndMakeFilmList();
+
 
   function showInfo() {
-    $.addEventListener("change", event => {
+    document.addEventListener("change", event => {
       // console.log(filmList);
-      let s = $.querySelector('select');
-      let m = filmList[s.value]
-      console.log(s.value, m.title)
-      let body = $.querySelector("body");
+      let select = document.querySelector('select');
+      let movies = filmList[select.value]
+      console.log(select.value, movies.title)
+      let body = document.querySelector("body");
+      // body.removeChild(display);
+      // let display = document.createElement("div");
+      // display.classList.add("display");
 
-      let display = $.createElement("div");
-      display.classList.add("display");
+      ul = document.createElement("ul");
 
-      let ul = $.createElement("ul");
+      let keys = ["title", "director", "description", "rt_score", "release_date"]
+      // let placeKeys;
+      // let li;
 
-      let props = ["title", "director", "description", "rt_score", "release_date"]
-      props.forEach(prop => {
-        let li = $.createElement("li");
-        li.innerText = m[prop]
-        ul.appendChild(li);
+        // // debugger
+        // ul.removeChild(li);
+        // // debugger
+        // ul.appendChild(li)
+      // if(display.firstChild){}
+        // let placeKeys =
+while(ul.firstChild) {
+  // console.log(ul.firstChild);
+  ul.removeChild(ul.firstChild)
+}
 
-      })
+      keys.forEach(property => {
+           //if(ul.firsChild)
+          // if (ul.innerHTML) {
+
+
+        title.innerText = property.toUpperCase() + ": " + movies[property];
+
+            // li = document.createElement("li");
+            // li.innerText = property.toUpperCase() + ": " + movies[property]
+            // // console.log(property);
+            //
+            //
+            // // ul.removeChild(li)
+            // ul.appendChild(li);
+
+
+
+        })
+
+
+
 
       display.appendChild(ul);
       body.appendChild(display);
@@ -43,22 +82,34 @@ $.addEventListener("DOMContentLoaded", () => {
 });
 
 const createAndAppendSelect = () => {
-  // let body = $.querySelector("body");
-  let form = $.querySelector("form");
-  let select = $.createElement("select");
-  let firstOption = $.createElement("option");
+  let body = document.querySelector("body");
+  let form = document.createElement("form");
+  let select = document.createElement("select");
+  let firstOption = document.createElement("option");
 
   firstOption.innerText = "Movies";
   select.id = "movies";
   select.appendChild(firstOption);
   form.appendChild(select);
+  body.appendChild(form)
 };
 
-const showMovieInfoVariables = () => {
 
+const createAndAppendOptions = movie => {
+  let select = document.querySelector("select");
+
+  for (let i = 0; i < movie.length; i++) {
+    // console.log(movie[i]);
+    // console.log(movie[i].title);
+    let option = document.createElement("option");
+    option.value = i;
+    option.innerText = movie[i].title;
+    select.appendChild(option);
+  }
 };
 
-function getMovie() {
+
+function fetchAndMakeFilmList() {
   fetch("https://ghibliapi.herokuapp.com/films/")
     .then(response => {
       return response.json();
@@ -72,16 +123,3 @@ function getMovie() {
   // console.log(res);
   // console.log(option.innerText = res.title);
 }
-
-const createAndAppendOptions = movie => {
-  showMovieInfoVariables();
-  let select = $.querySelector("select");
-  for (let i = 0; i < movie.length; i++) {
-    // console.log(movie[i]);
-    // console.log(movie[i].title);
-    let option = $.createElement("option");
-    option.value = i;
-    option.innerText = movie[i].title;
-    select.appendChild(option);
-  }
-};
