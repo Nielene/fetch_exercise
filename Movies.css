@@ -16,9 +16,9 @@ span, article, footer, time, small {
   background: transparent;
 }
 
-ul, ol {
+/* ul, ol {
   list-style: none;
-}
+} */
 
 img {
   display: block;
@@ -76,7 +76,7 @@ select {
 }
 
 div.display {
-  grid-column: 1;
+  grid-column: 1 / span 2;
   grid-row: 3;
   border: 1px red solid;
   height: 100px;

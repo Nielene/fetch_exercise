@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let form = document.querySelector("form");
   let select = document.createElement("select");
   let firstOption = document.createElement('option');
-  let div;
-  let display;
+  // let div;
+  // let display;
 
   firstOption.innerText = ''
   select.appendChild(firstOption)
@@ -45,25 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     }).then(res => {
 
+      for (let i = 0; i < res.length; i++) {
+
+      let div = document.createElement("div");
+      div.classList.add("display");
+      let display = document.querySelector(".display");
       let ul =document.createElement("ul");
       let li =document.createElement("li");
-      div = document.createElement("div");
-      display = document.querySelector(".display");
+      // debugger
+        body.appendChild(div);
+        // debugger
+        div.appendChild(ul);
+        // display.appendChild(ul);
+        // debugger
+        ul.appendChild(li);
 
-      for (let i = 0; i < res.length; i++) {
         li.innerText = res[i].title;
         li.innerText = res[i].director;
         li.innerText = res[i].description;
         // li.innerText = res[i].
         // li.innerText = res[i].
-        div.classList.add("display");
-
-        ul.appendChild(li);
-        display.appendChild(ul);
-        body.appendChild(div);
 
     }
-    console.log(ul);
+    // console.log(ul);
 
 
     })
