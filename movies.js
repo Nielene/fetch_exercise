@@ -1,85 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
+let $ = document;
+$.addEventListener("DOMContentLoaded", () => {
 
-  let body = document.querySelector("body");
-  // let option = document.querySelector("option");
-  let form = document.querySelector("form");
-  let select = document.createElement("select");
-  let firstOption = document.createElement('option');
-  // let div;
-  // let display;
+  createAndAppendSelect()
 
-  firstOption.innerText = ''
-  select.appendChild(firstOption)
-  form.appendChild(select);
-
-
-
-  // ul.appendChild(li);
-
-  select.title = "Movies";
-
-
-  function getMovie () {
-    fetch("https://ghibliapi.herokuapp.com/films/").then(response => {
-      console.log(response)
-      return response.json();
-    }).then(res => {
-
-      for (let i = 0; i < res.length; i++) {
-        console.log(res[i]);
-        // console.log(res[i].title);
-        let option = document.createElement("option")
-        option.innerText = res[i].title;
-        select.appendChild(option);
-      }
-      // console.log(res);
-      // console.log(option.innerText = res.title);
-    })
-  }
   getMovie()
 
 
+
+
   function showInfo() {
-    fetch("https://ghibliapi.herokuapp.com/films/").then(response => {
-      // console.log(response)
-      return response.json();
-    }).then(res => {
+    $.addEventListener("change", (event) => {
+      div; display; ul; li;
 
-      for (let i = 0; i < res.length; i++) {
-
-      let div = document.createElement("div");
-      div.classList.add("display");
-      let display = document.querySelector(".display");
-      let ul =document.createElement("ul");
-      let li =document.createElement("li");
       // debugger
-        body.appendChild(div);
-        // debugger
-        div.appendChild(ul);
-        // display.appendChild(ul);
-        // debugger
-        ul.appendChild(li);
-
-        li.innerText = res[i].title;
-        li.innerText = res[i].director;
-        li.innerText = res[i].description;
-        // li.innerText = res[i].
-        // li.innerText = res[i].
-
-    }
-    // console.log(ul);
+      body.appendChild(div);
+      // debugger
+      div.appendChild(ul);
+      // display.appendChild(ul);
+      // debugger
+      li.innerText = res.title;
+      li.innerText = res.director;
+      li.innerText = res.description;
+      li.innerText = res.rt_score;
+      li.innerText = res.release_date;
+      // debugger
+      ul.appendChild(li);
 
 
     })
   }
 
 
-  document.addEventListener("click", (event) => {
+
+
+  fetch("https://ghibliapi.herokuapp.com/films/").then(response => {
+    // console.log(response)
+    return response.json();
+  }).then(res => {
     showInfo()
 
   })
 
-
-
-
 })
+
+const createAndAppendSelect=()=>{
+  let body = $.querySelector("body");
+  let form = $.querySelector("form");
+  let select = $.createElement("select");
+  let firstOption = $.createElement('option');
+
+  firstOption.innerText = 'Movies'
+  select.id = "movies";
+  select.appendChild(firstOption)
+  form.appendChild(select);
+}
+
+const showMovieInfoVariables = () => {
+  let div = $.createElement("div");
+  div.classList.add("display");
+  let display = $.querySelector(".display");
+  let ul =$.createElement("ul");
+  let li =$.createElement("li");
+}
+
+
+function getMovie () {
+  fetch("https://ghibliapi.herokuapp.com/films/")
+  .then(response => {
+    console.log(response)
+    return response.json();
+  }).then(res => {
+    createAndAppendOptions(res);
+  })
+    // console.log(res);
+    // console.log(option.innerText = res.title);
+  }
+
+
+const createAndAppendOptions = movie => {
+  showMovieInfoVariables();
+  let select = $.querySelector('select');
+  for (let i = 0; i < movie.length; i++) {
+    console.log(movie[i]);
+    // console.log(movie[i].title);
+    let option = $.createElement("option")
+    option.innerText = movie[i].title;
+    select.appendChild(option);
+  }
+}
