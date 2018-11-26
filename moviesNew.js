@@ -32,7 +32,45 @@ function populateMovies(movie) {
 }
 
   function showMovieInformation () {
+
+    // let select = document.querySelector('select');
+    // let movies = bigArrOfMovies[select.value];
+    //
+    // console.log(select.value, movies.title);
+    //
+    // let display = document.querySelector(".display");
+    // let content = document.querySelector(".content");
+    //
+    // console.log("movies",movies);
+    //
+    //
+    // for (let i = 0; i < movies.length; i++) {
+    //   console.log("hello", movies.title);
+    // }
+
+
+
     document.addEventListener("change", event => {
+
+      let select = document.querySelector('select');
+      let movies = bigArrOfMovies[select.value];
+
+      console.log(select.value, movies.title);
+
+      let display = document.querySelector(".display");
+      let content = document.querySelector(".content");
+
+      console.log("movies",movies);
+
+      let keys = ["title", "director", "description", "rt_score", "release_date"]
+
+      // movies.forEach(property => {
+      //   content.innerText = movies[property];
+      // })
+
+      for (let i = 0; i < movies.length; i++) {
+        console.log("hello", movies.title);
+
 
       let titleHead = document.querySelector("#titleHead");
       let title = document.querySelector("#title");
@@ -44,18 +82,19 @@ function populateMovies(movie) {
       let rt_score = document.querySelector("#rt_score");
       let release_dateHead = document.querySelector("#release_dateHead");
       let release_date = document.querySelector("#release_date");
-      titleHead.innerHTML = "Title"
-      title.innerHTML = movie[i].title;
-      directorHead.innerHTML = "Director"
-      director.innerHTML = movie[i].director;
-      descriptionHead.innerHTML = "Description"
-      description.innerHTML = movie[i].description;
-      rt_scoreHead.innerHTML = "Rotten Tomatoes Score"
-      rt_score.innerHTML = movie[i].rt_score;
-      release_dateHead.innerHTML = "Release Date"
-      release_date.innerHTML = movie[i].release_date;
 
+      titleHead.innerText = "Title"
+      title.innerText = movies[i].title;
+      directorHead.innerText = "Director"
+      director.innerText = movies[i].director;
+      descriptionHead.innerText = "Description"
+      description.innerText = movies[i].description;
+      rt_scoreHead.innerText = "Rotten Tomatoes Score"
+      rt_score.innerText = movies[i].rt_score;
+      release_dateHead.innerText = "Release Date"
+      release_date.innerText = movies[i].release_date;
 
+      }
 
       // debugger
 
