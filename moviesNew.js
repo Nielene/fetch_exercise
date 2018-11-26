@@ -33,43 +33,17 @@ function populateMovies(movie) {
 
   function showMovieInformation () {
 
-    // let select = document.querySelector('select');
-    // let movies = bigArrOfMovies[select.value];
-    //
-    // console.log(select.value, movies.title);
-    //
-    // let display = document.querySelector(".display");
-    // let content = document.querySelector(".content");
-    //
-    // console.log("movies",movies);
-    //
-    //
-    // for (let i = 0; i < movies.length; i++) {
-    //   console.log("hello", movies.title);
-    // }
-
-
-
     document.addEventListener("change", event => {
 
       let select = document.querySelector('select');
       let movies = bigArrOfMovies[select.value];
 
-      console.log(select.value, movies.title);
+      // console.log(select.value, movies.title);
 
       let display = document.querySelector(".display");
       let content = document.querySelector(".content");
 
-      console.log("movies",movies);
-
-      // let keys = ["title", "director", "description", "rt_score", "release_date"]
-
-      // movies.forEach(property => {
-      //   content.innerText = movies[property];
-      // })
-
-      // for (let i = 0; i < movies.length; i++) {
-      //   console.log("hello", movies.title);
+      // console.log("movies",movies);
 
 
       let titleHead = document.querySelector("#titleHead");
@@ -98,22 +72,26 @@ function populateMovies(movie) {
       release_dateHead.innerText = "Release Date"
       release_date.innerText = movies.release_date;
 
-      // }
-
-      // debugger
-
-      // for (let i = 0; i < movie.length; i++) {
-      //
-      // }
-
     })
 
   }
 
 
-fetch("https://ghibliapi.herokuapp.com/films/")
+// fetch("https://ghibliapi.herokuapp.com/films/")
 //to get indiv movie . form the id value in selct. so on changing the select, (get new id?)
 
+//-----
+
+      // let keys = ["title", "director", "description", "rt_score", "release_date"]
+
+      // movies.forEach(property => {
+      //   content.innerText = movies[property];
+      // })
+
+      // for (let i = 0; i < movies.length; i++) {
+      //   console.log("hello", movies.title);
+      // }
+//-------
 
 
 

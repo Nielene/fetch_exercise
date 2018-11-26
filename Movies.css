@@ -48,16 +48,23 @@ input[type="submit"] {
 body {
   display: grid;
   grid-template-columns: 300px 1fr 300px;
-  grid-template-rows: 60px 60px 1fr;
-  background-color: #a0db8e;
+  grid-template-rows: 80px 60px 1fr;
+  background-color: white;
+  background-image: url("https://grmstotempost.com/wp-content/uploads/2018/02/reel.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+
+
 }
 
 h1 {
   grid-column: 2;
   grid-row: 1;
   text-align: center;
-  font-size: 50px;
-  padding: 20px;
+  font-style: italic;
+  font-size: 60px;
+  padding: 30px;
+  /* margin-bottom: 20px; */
 }
 
 form {
@@ -65,14 +72,14 @@ form {
   grid-row: 2;
   padding: 20px;
 
-  font-size: 16px;
-  font-style: italic;
 }
 
 select {
   padding: 20px;
   height: 40px;
   width: 100%;
+  font-family: cursive;
+  font-size: 16px;
 }
 
 select:hover {
@@ -81,15 +88,23 @@ select:hover {
   font-style: italic;
 }
 
-/* option.innerText:hover {
-
+/* option {
+  font-style: italic;
+  font-family: monospace;
 } */
 
-div.display {
+.display {
   grid-column: 1 / span 2;
   grid-row: 3;
   /* border: 1px red solid; */
   height: 100px;
   margin-top: 20px;
   margin-left: 20px;
+
+}
+
+
+h3.heading {
+  font-kerning: auto;
+  font-style: italic;
 }
