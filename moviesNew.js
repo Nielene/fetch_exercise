@@ -85,12 +85,16 @@ function populateMovies(movie) {
 
       titleHead.innerText = "Title"
       title.innerText = movies.title;
+
       directorHead.innerText = "Director"
       director.innerText = movies.director;
+
       descriptionHead.innerText = "Description"
       description.innerText = movies.description;
+
       rt_scoreHead.innerText = "Rotten Tomatoes Score"
       rt_score.innerText = movies.rt_score;
+
       release_dateHead.innerText = "Release Date"
       release_date.innerText = movies.release_date;
 
