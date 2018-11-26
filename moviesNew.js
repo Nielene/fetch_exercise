@@ -62,14 +62,14 @@ function populateMovies(movie) {
 
       console.log("movies",movies);
 
-      let keys = ["title", "director", "description", "rt_score", "release_date"]
+      // let keys = ["title", "director", "description", "rt_score", "release_date"]
 
       // movies.forEach(property => {
       //   content.innerText = movies[property];
       // })
 
-      for (let i = 0; i < movies.length; i++) {
-        console.log("hello", movies.title);
+      // for (let i = 0; i < movies.length; i++) {
+      //   console.log("hello", movies.title);
 
 
       let titleHead = document.querySelector("#titleHead");
@@ -84,17 +84,17 @@ function populateMovies(movie) {
       let release_date = document.querySelector("#release_date");
 
       titleHead.innerText = "Title"
-      title.innerText = movies[i].title;
+      title.innerText = movies.title;
       directorHead.innerText = "Director"
-      director.innerText = movies[i].director;
+      director.innerText = movies.director;
       descriptionHead.innerText = "Description"
-      description.innerText = movies[i].description;
+      description.innerText = movies.description;
       rt_scoreHead.innerText = "Rotten Tomatoes Score"
-      rt_score.innerText = movies[i].rt_score;
+      rt_score.innerText = movies.rt_score;
       release_dateHead.innerText = "Release Date"
-      release_date.innerText = movies[i].release_date;
+      release_date.innerText = movies.release_date;
 
-      }
+      // }
 
       // debugger
 
